@@ -1,4 +1,5 @@
 import logoimg from "../assets/logo.jpg";
+import Button from "./UI/button.js";
 const Header = () => {
   return (
     <header id="main-header">
@@ -7,7 +8,7 @@ const Header = () => {
         <h1>Food</h1>
       </div>
       <nav>
-        <button>cart(0)</button>
+        <Button textOnly={true}>Cart(0)</Button>
       </nav>
     </header>
   );

@@ -7,6 +7,10 @@ const Header = () => {
   const cartItem = cartcontext.items.reduce((totalNoOfItem, item) => {
     return totalNoOfItem + item.quantity;
   }, 0);
+
+  function cartHandler() {
+    cartcontext.showCartModal = true;
+  }
   return (
     <header id="main-header">
       <div id="title">
@@ -14,7 +18,9 @@ const Header = () => {
         <h1>Food</h1>
       </div>
       <nav>
-        <Button textOnly={true}>Cart({cartItem})</Button>
+        <Button textOnly={true} onClick={cartHandler}>
+          Cart({cartItem})
+        </Button>
       </nav>
     </header>
   );

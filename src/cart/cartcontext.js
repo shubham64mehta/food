@@ -2,6 +2,7 @@ import { useReducer, createContext } from "react";
 
 const CartContext = createContext({
   items: [],
+  showCartModal: false,
   addItem: (item) => {},
   removeItem: (id) => {},
 });
@@ -56,6 +57,7 @@ export function CartContextProvider({ children }) {
   });
   const cartContext = {
     items: cart.items,
+    showCartModal: false,
     addItem,
     removeItem,
   };

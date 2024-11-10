@@ -16,8 +16,18 @@ const Cart = () => {
   function cartCloseHandler() {
     userProgressContext.hideCart();
   }
+
+  function goToCheckoutHandler() {
+    userProgressContext.showCheckout();
+  }
   return (
-    <Modal className="cart" open={userProgressContext.progress === "cart"}>
+    <Modal
+      className="cart"
+      open={userProgressContext.progress === "cart"}
+      onclose={
+        userProgressContext.progress === "cart" ? cartCloseHandler : null
+      }
+    >
       <h2>Your Cart</h2>
       <ul>
         {cartCtx.items.map((item) => {
@@ -43,7 +53,7 @@ const Cart = () => {
           Close
         </Button>
         {cartCtx.items.length > 0 && (
-          <Button onClick={cartCloseHandler}>Go To Checkout</Button>
+          <Button onClick={goToCheckoutHandler}>Go To Checkout</Button>
         )}
       </p>
     </Modal>
